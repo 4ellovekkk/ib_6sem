@@ -1,0 +1,281 @@
+[
+    {
+        "label": "base64",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "base64",
+        "description": "base64",
+        "detail": "base64",
+        "documentation": {}
+    },
+    {
+        "label": "matplotlib.pyplot",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "matplotlib.pyplot",
+        "description": "matplotlib.pyplot",
+        "detail": "matplotlib.pyplot",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "math",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "math",
+        "description": "math",
+        "detail": "math",
+        "documentation": {}
+    },
+    {
+        "label": "collections",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "collections",
+        "description": "collections",
+        "detail": "collections",
+        "documentation": {}
+    },
+    {
+        "label": "custom_xor_base64",
+        "kind": 2,
+        "importPath": "example",
+        "description": "example",
+        "peekOfCode": "def custom_xor_base64(buffer_a, buffer_b):\n    decoded_a = base64.b64decode(buffer_a)\n    decoded_b = base64.b64decode(buffer_b)\n    result = []\n    min_length = min(len(decoded_a), len(decoded_b))\n    for i in range(min_length):\n        result.append(chr(decoded_a[i] ^ decoded_b[i]))\n    return \"\".join(result)\n# Example usage\npart_1 = \"Makarov \"",
+        "detail": "example",
+        "documentation": {}
+    },
+    {
+        "label": "part_1",
+        "kind": 5,
+        "importPath": "example",
+        "description": "example",
+        "peekOfCode": "part_1 = \"Makarov \"\nencoded_part_1 = base64.b64encode(part_1.encode()).decode()\nprint(encoded_part_1)\npart_2 = \"Alexey\"\nencoded_part_2 = base64.b64encode(part_2.encode()).decode()\nprint(encoded_part_2)\nresult = custom_xor_base64(encoded_part_1, encoded_part_2)\nprint(result)",
+        "detail": "example",
+        "documentation": {}
+    },
+    {
+        "label": "encoded_part_1",
+        "kind": 5,
+        "importPath": "example",
+        "description": "example",
+        "peekOfCode": "encoded_part_1 = base64.b64encode(part_1.encode()).decode()\nprint(encoded_part_1)\npart_2 = \"Alexey\"\nencoded_part_2 = base64.b64encode(part_2.encode()).decode()\nprint(encoded_part_2)\nresult = custom_xor_base64(encoded_part_1, encoded_part_2)\nprint(result)",
+        "detail": "example",
+        "documentation": {}
+    },
+    {
+        "label": "part_2",
+        "kind": 5,
+        "importPath": "example",
+        "description": "example",
+        "peekOfCode": "part_2 = \"Alexey\"\nencoded_part_2 = base64.b64encode(part_2.encode()).decode()\nprint(encoded_part_2)\nresult = custom_xor_base64(encoded_part_1, encoded_part_2)\nprint(result)",
+        "detail": "example",
+        "documentation": {}
+    },
+    {
+        "label": "encoded_part_2",
+        "kind": 5,
+        "importPath": "example",
+        "description": "example",
+        "peekOfCode": "encoded_part_2 = base64.b64encode(part_2.encode()).decode()\nprint(encoded_part_2)\nresult = custom_xor_base64(encoded_part_1, encoded_part_2)\nprint(result)",
+        "detail": "example",
+        "documentation": {}
+    },
+    {
+        "label": "result",
+        "kind": 5,
+        "importPath": "example",
+        "description": "example",
+        "peekOfCode": "result = custom_xor_base64(encoded_part_1, encoded_part_2)\nprint(result)",
+        "detail": "example",
+        "documentation": {}
+    },
+    {
+        "label": "calculate_entropy",
+        "kind": 2,
+        "importPath": "lab1",
+        "description": "lab1",
+        "peekOfCode": "def calculate_entropy(text):\n    # Подсчет частоты появления каждого символа\n    char_freq = {}\n    total_chars = len(text)\n    for char in text:\n        if char.isalpha():\n            if char in char_freq:\n                char_freq[char] += 1\n            else:\n                char_freq[char] = 1",
+        "detail": "lab1",
+        "documentation": {}
+    },
+    {
+        "label": "calculate_entropy_graph",
+        "kind": 2,
+        "importPath": "lab1",
+        "description": "lab1",
+        "peekOfCode": "def calculate_entropy_graph(text):\n    # Подсчет частоты появления каждого символа\n    char_freq = {}\n    total_chars = len(text)\n    for char in text:\n        if char.isalpha():\n            if char in char_freq:\n                char_freq[char] += 1\n            else:\n                char_freq[char] = 1",
+        "detail": "lab1",
+        "documentation": {}
+    },
+    {
+        "label": "is_binary",
+        "kind": 2,
+        "importPath": "lab1",
+        "description": "lab1",
+        "peekOfCode": "def is_binary(text):\n    for char in text:\n        if char not in [\"0\", \"1\"]:\n            return False\n    return True\ndef effective_entropy(text, p):\n    q = 1 - p\n    if is_binary(text) and (p == 0 or q == 0):\n        return 1\n    elif q == 0:",
+        "detail": "lab1",
+        "documentation": {}
+    },
+    {
+        "label": "effective_entropy",
+        "kind": 2,
+        "importPath": "lab1",
+        "description": "lab1",
+        "peekOfCode": "def effective_entropy(text, p):\n    q = 1 - p\n    if is_binary(text) and (p == 0 or q == 0):\n        return 1\n    elif q == 0:\n        return 1\n    else:\n        return calculate_entropy(text) - (-p * math.log2(p) - q * math.log2(q))\ndef info_amount_with_errors(file, p):\n    try:",
+        "detail": "lab1",
+        "documentation": {}
+    },
+    {
+        "label": "info_amount_with_errors",
+        "kind": 2,
+        "importPath": "lab1",
+        "description": "lab1",
+        "peekOfCode": "def info_amount_with_errors(file, p):\n    try:\n        with open(file, \"r\") as f:\n            text = f.read()\n        return effective_entropy(text, p) * len(text)\n    except FileNotFoundError:\n        return None\nerror_probabilities = [0.1, 0.5, 1.0]\n# Обработка текста на латинице\nwith open(\"latin_text.txt\", \"r\", encoding=\"utf-8\") as file:",
+        "detail": "lab1",
+        "documentation": {}
+    },
+    {
+        "label": "error_probabilities",
+        "kind": 5,
+        "importPath": "lab1",
+        "description": "lab1",
+        "peekOfCode": "error_probabilities = [0.1, 0.5, 1.0]\n# Обработка текста на латинице\nwith open(\"latin_text.txt\", \"r\", encoding=\"utf-8\") as file:\n    latin_text = file.read()\nprint(\"Для текста на латинице:\")\nlat_ent = calculate_entropy_graph(latin_text)\n# Обработка текста на русском\nwith open(\"base64_res.txt\", \"r\", encoding=\"utf-8\") as file:\n    cyrillic_text = file.read()\nprint(\"\\nДля текста base64:\")",
+        "detail": "lab1",
+        "documentation": {}
+    },
+    {
+        "label": "lat_ent",
+        "kind": 5,
+        "importPath": "lab1",
+        "description": "lab1",
+        "peekOfCode": "lat_ent = calculate_entropy_graph(latin_text)\n# Обработка текста на русском\nwith open(\"base64_res.txt\", \"r\", encoding=\"utf-8\") as file:\n    cyrillic_text = file.read()\nprint(\"\\nДля текста base64:\")\ncyr_entr = calculate_entropy_graph(cyrillic_text)",
+        "detail": "lab1",
+        "documentation": {}
+    },
+    {
+        "label": "cyr_entr",
+        "kind": 5,
+        "importPath": "lab1",
+        "description": "lab1",
+        "peekOfCode": "cyr_entr = calculate_entropy_graph(cyrillic_text)",
+        "detail": "lab1",
+        "documentation": {}
+    },
+    {
+        "label": "convert_to_base64",
+        "kind": 2,
+        "importPath": "lab2",
+        "description": "lab2",
+        "peekOfCode": "def convert_to_base64(filename):\n    with open(filename, \"rb\") as file:\n        encoded_string = base64.b64encode(file.read())\n    return encoded_string.decode()\ndef calculate_entropy(text):\n    frequencies = collections.Counter(text)\n    entropy = 0.0\n    total_length = len(text)\n    for freq in frequencies.values():\n        probability = freq / total_length",
+        "detail": "lab2",
+        "documentation": {}
+    },
+    {
+        "label": "calculate_entropy",
+        "kind": 2,
+        "importPath": "lab2",
+        "description": "lab2",
+        "peekOfCode": "def calculate_entropy(text):\n    frequencies = collections.Counter(text)\n    entropy = 0.0\n    total_length = len(text)\n    for freq in frequencies.values():\n        probability = freq / total_length\n        entropy -= probability * math.log2(probability)\n    return entropy\ndef calculate_redundancy(text):\n    frequencies = collections.Counter(text)",
+        "detail": "lab2",
+        "documentation": {}
+    },
+    {
+        "label": "calculate_redundancy",
+        "kind": 2,
+        "importPath": "lab2",
+        "description": "lab2",
+        "peekOfCode": "def calculate_redundancy(text):\n    frequencies = collections.Counter(text)\n    total_length = len(text)\n    max_entropy = math.log2(len(frequencies))\n    actual_entropy = 0.0\n    for freq in frequencies.values():\n        probability = freq / total_length\n        actual_entropy -= probability * math.log2(probability)\n    redundancy = (max_entropy - actual_entropy) / max_entropy\n    return redundancy",
+        "detail": "lab2",
+        "documentation": {}
+    },
+    {
+        "label": "custom_xor_base64",
+        "kind": 2,
+        "importPath": "lab2",
+        "description": "lab2",
+        "peekOfCode": "def custom_xor_base64(buffer_a, buffer_b):\n    decoded_a = base64.b64decode(buffer_a)\n    decoded_b = base64.b64decode(buffer_b)\n    result = []\n    min_length = min(len(decoded_a), len(decoded_b))\n    for i in range(min_length):\n        result.append(chr(decoded_a[i] ^ decoded_b[i]))\n    return \"\".join(result)\ndef custom_xor_ascii(string_a, string_b):\n    # Преобразование строк в коды ASCII",
+        "detail": "lab2",
+        "documentation": {}
+    },
+    {
+        "label": "custom_xor_ascii",
+        "kind": 2,
+        "importPath": "lab2",
+        "description": "lab2",
+        "peekOfCode": "def custom_xor_ascii(string_a, string_b):\n    # Преобразование строк в коды ASCII\n    ascii_a = [ord(char) for char in string_a]\n    ascii_b = [ord(char) for char in string_b]\n    # Выполнение операции XOR\n    result = []\n    min_length = min(len(ascii_a), len(ascii_b))\n    for i in range(min_length):\n        result.append(chr(ascii_a[i] ^ ascii_b[i]))\n    return \"\".join(result)",
+        "detail": "lab2",
+        "documentation": {}
+    },
+    {
+        "label": "file_name",
+        "kind": 5,
+        "importPath": "lab2",
+        "description": "lab2",
+        "peekOfCode": "file_name = \"latin_text.txt\"  # Название вашего текстового документа\nbase64_content = convert_to_base64(file_name)\nwith open(\"base64_res.txt\", \"w\") as file:\n    file.write(base64_content)\nwith open(\"latin_text.txt\", \"r\") as file:\n    text = file.read()\nprint(f\"избыточность base64: {calculate_redundancy(base64_content)}\")\nprint(f\"избыточность латинский алфавит: {calculate_redundancy(text)}\")\npart_1 = \"Makarov \"\nencoded_part_1 = base64.b64encode(part_1.encode()).decode()",
+        "detail": "lab2",
+        "documentation": {}
+    },
+    {
+        "label": "base64_content",
+        "kind": 5,
+        "importPath": "lab2",
+        "description": "lab2",
+        "peekOfCode": "base64_content = convert_to_base64(file_name)\nwith open(\"base64_res.txt\", \"w\") as file:\n    file.write(base64_content)\nwith open(\"latin_text.txt\", \"r\") as file:\n    text = file.read()\nprint(f\"избыточность base64: {calculate_redundancy(base64_content)}\")\nprint(f\"избыточность латинский алфавит: {calculate_redundancy(text)}\")\npart_1 = \"Makarov \"\nencoded_part_1 = base64.b64encode(part_1.encode()).decode()\nprint(f\"закодированная часть 1: {encoded_part_1}\")",
+        "detail": "lab2",
+        "documentation": {}
+    },
+    {
+        "label": "part_1",
+        "kind": 5,
+        "importPath": "lab2",
+        "description": "lab2",
+        "peekOfCode": "part_1 = \"Makarov \"\nencoded_part_1 = base64.b64encode(part_1.encode()).decode()\nprint(f\"закодированная часть 1: {encoded_part_1}\")\npart_2 = \"Alexey\"\nencoded_part_2 = base64.b64encode(part_2.encode()).decode()\nprint(f\"закодированная часть 2: {encoded_part_2}\")\nresult = custom_xor_base64(encoded_part_1, encoded_part_2)\nprint(f\"xor base64 {result}\")\nprint(f\"xor ascii: {custom_xor_ascii(part_1,part_2)}\")",
+        "detail": "lab2",
+        "documentation": {}
+    },
+    {
+        "label": "encoded_part_1",
+        "kind": 5,
+        "importPath": "lab2",
+        "description": "lab2",
+        "peekOfCode": "encoded_part_1 = base64.b64encode(part_1.encode()).decode()\nprint(f\"закодированная часть 1: {encoded_part_1}\")\npart_2 = \"Alexey\"\nencoded_part_2 = base64.b64encode(part_2.encode()).decode()\nprint(f\"закодированная часть 2: {encoded_part_2}\")\nresult = custom_xor_base64(encoded_part_1, encoded_part_2)\nprint(f\"xor base64 {result}\")\nprint(f\"xor ascii: {custom_xor_ascii(part_1,part_2)}\")",
+        "detail": "lab2",
+        "documentation": {}
+    },
+    {
+        "label": "part_2",
+        "kind": 5,
+        "importPath": "lab2",
+        "description": "lab2",
+        "peekOfCode": "part_2 = \"Alexey\"\nencoded_part_2 = base64.b64encode(part_2.encode()).decode()\nprint(f\"закодированная часть 2: {encoded_part_2}\")\nresult = custom_xor_base64(encoded_part_1, encoded_part_2)\nprint(f\"xor base64 {result}\")\nprint(f\"xor ascii: {custom_xor_ascii(part_1,part_2)}\")",
+        "detail": "lab2",
+        "documentation": {}
+    },
+    {
+        "label": "encoded_part_2",
+        "kind": 5,
+        "importPath": "lab2",
+        "description": "lab2",
+        "peekOfCode": "encoded_part_2 = base64.b64encode(part_2.encode()).decode()\nprint(f\"закодированная часть 2: {encoded_part_2}\")\nresult = custom_xor_base64(encoded_part_1, encoded_part_2)\nprint(f\"xor base64 {result}\")\nprint(f\"xor ascii: {custom_xor_ascii(part_1,part_2)}\")",
+        "detail": "lab2",
+        "documentation": {}
+    },
+    {
+        "label": "result",
+        "kind": 5,
+        "importPath": "lab2",
+        "description": "lab2",
+        "peekOfCode": "result = custom_xor_base64(encoded_part_1, encoded_part_2)\nprint(f\"xor base64 {result}\")\nprint(f\"xor ascii: {custom_xor_ascii(part_1,part_2)}\")",
+        "detail": "lab2",
+        "documentation": {}
+    }
+]
