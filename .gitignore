@@ -8,7 +8,7 @@ __pycache__/
 
 #editor files
 .zed
-,vscode
+.vscode
 
 
 # Distribution / packaging
