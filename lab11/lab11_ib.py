@@ -18,8 +18,7 @@ def evaluate_performance(message: str, iterations: int) -> None:
 
     end_time = time.time()
     elapsed_time = end_time - start_time
-    print(f"Время, затраченное на {iterations} итераций: {
-          elapsed_time:.6f} секунд")
+    print(f"Время, затраченное на {iterations} итераций: {elapsed_time:.6f} секунд")
     print(f"Среднее время на итерацию: {elapsed_time / iterations:.6f} секунд")
 
 
